@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang=fr xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/index.css">
+    <title>SAE 1.04 - Mission n°1</title>
+</head>
+<body>
+<header>
+    <h1>Mission n°1</h1>
+    <h2>Interrogation d'une base de données - Excel</h2>
+</header>
+<nav>
+    <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="mission1.html">Mission n°1</a></li>
+        <li><a href="mission2.html">Mission n°2</a></li>
+        <li><a href="mission3.html">Mission n°3</a></li>
+        <li><a href="mission4.html">Mission n°4</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+    </ul>
+</nav>
+<main>
+    <article>
+        <h3>Contexte</h3>
+        <p>Dans cette première mission nous allons d'abord prendre en main les données de KDou en étudiant la base de donnée
+            et l'interrogeant sur excel.</p>
+    </article>
+    <article>
+        <h3>Analyse globale de la base de données</h3>
+        <p>Nous avons d'abord identifiés les clés primaires et secondaires :</p>
+        <ol>
+            <li>Clés primaires :</li>
+            <ol class="ListesClés">
+               <li>Table Fournisseur : l’attribut « N° fournisseur »</li>
+                <li>Table Produit : l’attribut « Réf produit »</li>
+                <li>Table Categorie : l’attribut « Code catégorie » </li>
+                <li>Table Clientele : l’attribut « Code client » </li>
+                <li>Table Commande : l’attribut « N° commande » </li>
+                <li>Table DetailCommande : la clé primaire par attributs d’ensemble ici est composée de l’attribut « Réf
+                    produit » et de l’attribut « N° commande ». Ces deux attributs permettent d’avoir une unicité. </li>
+            </ol>
+            <li>Clés secondaires</li>
+            <ol class="ListesClés">
+                <li>Table Fournisseur : Aucun attribut</li>
+                <li>Table Produit : les attributs « N° fournisseur » et « Code catégorie »</li>
+                <li>Table Categorie : Aucun attribut</li>
+                <li>Table Clientele : Aucun attribut</li>
+                <li>Table Commande : l’attribut « Code client »</li>
+                <li>Table DetailCommande : les attributs « Réf produit » et « N° commande » </li>
+            </ol>
+        </ol>
+        <article class="SchémaBDR">
+            <h4>On a donc le schéma de la BDR suivant :</h4>
+            <p><strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact, Fonction, Adresse, Ville, Région, Code postal, Pays, Téléphone)<br>
+                <strong>PRODUIT</strong> (<strong><u>Réf produit</u></strong>, <em>N° fournisseur</em>, <em>Code catégorie</em>, Nom du produit, Quantité par unité, Prix unitaire, Unités en stock)<br>
+                <strong>CATEGORIES</strong> (<strong><u>Code catégorie</u></strong>, Nom de catégorie, Description)<br>
+                <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse, Ville, Code postal, Pays, Téléphone)<br>
+                <strong>COMMANDE</strong> (<strong><u>N° commande</u></strong>, <em>Code client</em>, Date commande, A livrer avant, Date envoi, Port)<br>
+                <strong>DETAILCOMMANDE</strong> (<strong><em><u>Réf produit</u></em></strong>, <strong><em><Su>N° commande</Su></em></strong>, Prix unitaire, Quantité, Remise (%))</p>
+        </article>
+    </article>
+    <article>
+        <h3>Explications et exemples</h3>
+        <p>Voici quelques exemples et explications afin de comprendre au mieux le schéma ci-dessus :</p>
+        <ol>
+            <li>
+                <h4>Combien y a-t-il de clients Nantais ?</h4>
+                <p>Pour trouver cette information nous allons donc aller dans la table CLIENTELE et appliquer un filtre avec "*nantes*".
+                On remarque donc qu'il y a seulement 3 clients Nantais :</p>
+                <table>
+                    <tr>
+                        <th scope="col">Code client</th>
+                        <th scope="col">Société</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Pays</th>
+                        <th scope="col">Téléphone</th>
+                    </tr>
+                    <tr>
+                        <td>COMMI</td>
+                        <td>Pedro's house</td>
+                        <td>Pedro Afonso</td>
+                        <td>67, rue des Cinquante Otages</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.40.67.88.88</td>
+                    </tr>
+                    <tr>
+                        <td>DRACD</td>
+                        <td>Table nantaise</td>
+                        <td>Sven Ottlieb</td>
+                        <td>54, rue Royale</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.40.32.21.21</td>
+                    </tr>
+                    <tr>
+                        <td>FURIB</td>
+                        <td>Verre à soi</td>
+                        <td>Lino Rodriguez</td>
+                        <td>6, rue Jean Baptiste Lulli</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.61.77.61.10</td>
+                    </tr>
+                </table>
+                <p>On voit donc ici que la table CLIENTELE est organisée de la manière suivante :<br>
+                <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse, Ville, Code postal, Pays, Téléphone)</p>
+            </li>
+            <li>
+                <h4>Quelle est l'adresse du fournisseur Marie Delamare ?</h4>
+                <p>Pour trouver cette information, nous allons directement faire une recherche dans la table FOURNISSEUR, on a donc l'adresse suivante :<br>
+                    22 rue H. Voiron Montceau [Region NULL] 71300 France</p>
+                <img src="assets/pictures/mission1.png" alt="Table FOURNISSEUR avec la recherche active sur Excel">
+            </li>
+            <li>
+                <h4>Quelle est l'offre de produits Suédois ?</h4>
+            </li>
+            <li>
+                <h4>Quels produits à commandé le client Mikal Torin ?</h4>
+            </li>
+        </ol>
+    </article>
+    <article>
+        <h3>Conclusion</h3>
+        <p></p>
+    </article>
+</main>
+<footer>
+
+</footer>
+</body>
+</html>
