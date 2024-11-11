@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang=fr xmlns="http://www.w3.org/1999/html">
+<html lang=fr>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,20 +11,32 @@
     <h1>Mission n°1</h1>
     <h2>Interrogation d'une base de données - Excel</h2>
 </header>
-<nav>
-    <ul>
-        <li><a href="accueil.html">Accueil</a></li>
-        <li><a href="mission1.html">Mission n°1</a></li>
-        <li><a href="mission2.html">Mission n°2</a></li>
-        <li><a href="mission3.html">Mission n°3</a></li>
-        <li><a href="mission4.html">Mission n°4</a></li>
-        <li><a href="conclusion.html">Conclusion</a></li>
-    </ul>
-</nav>
+<aside>
+    <nav>
+        <h4>MENU</h4>
+        <ul>
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="mission1.html">Mission n°1</a></li>
+            <li><a href="mission2.html">Mission n°2</a></li>
+            <li><a href="mission3.html">Mission n°3</a></li>
+            <li><a href="mission4.html">Mission n°4</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+    </nav>
+    <div class="sommaire">
+        <h4>SOMMAIRE</h4>
+        <ol>
+            <a href="#contexte"><li>Contexte</li></a>
+            <a href="#analyse"><li>Analyse globale de la base de données</li></a>
+            <a href="#exemples"><li>Explications et exemples</li></a>
+            <a href="#conclusion"><li>Conclusion</li></a>
+        </ol>
+    </div>
+</aside>
 <main>
     <ol>
         <li>
-            <article>
+            <article id="contexte">
                 <h3>Contexte</h3>
                 <p>Dans cette première mission nous allons d'abord prendre en main les données de KDou en étudiant la
                     base de donnée
@@ -32,7 +44,7 @@
             </article>
         </li>
         <li>
-            <article>
+            <article id="analyse">
                 <h3>Analyse globale de la base de données</h3>
                 <p>Nous avons d'abord identifiés les clés primaires et secondaires :</p>
                 <ol>
@@ -79,7 +91,7 @@
             </article>
         </li>
         <li>
-            <article>
+            <article id="exemples">
                 <h3>Explications et exemples</h3>
                 <p>Voici quelques exemples et explications afin de comprendre au mieux le schéma ci-dessus, nous allons
                     chercher plusieurs informations dans la base de données
@@ -177,7 +189,7 @@
             </article>
         </li>
         <li>
-            <article>
+            <article id="conclusion">
                 <h3>Conclusion</h3>
                 <p>Pour conclure sur cette première approche de la base de données de KDou, nous pouvons affirmer que les données ne sont pas de bonne qualité.
                     En effet, pendant notre étude nous avons relevé une multitude d'erreurs et d'incohérences.
@@ -192,31 +204,58 @@
                     <li>Remplir entièrement l'attribut "Région> dans la table FOURNISSEUR qui est très peu utilisées et pourrait servir pour des recherches plus précises et poussées.</li>
                 </ul>
                 <p>Mais, il faudra surtout changer d'outils pour parcourir cette base de données en utilisant par exemple Microsoft Access, ce qui nous permettrait d'appliquer des contraintes d'intégrité et ainsi "lier" les tables entre elles et avoir un ensemble de données beaucoup plus cohérent. On pourrait appliquer les contraintes d'intégrités suivantes :</p>
+                <div>
                 <ul>
                     <li>
                         Contraintes d'intégrités (CI) de domaine :
                         <ul>
-                            <li>"Prix unitaire> est un monétaire</li>
-                            <li>"Date commande" et "A livrer avant" et "Date envoi" sont des dates (jj/mm/aaaa), "Port" est monétaire</li>
-                            <li>"Remise (%)" est un pourcentage</li>
+                            <li>« Prix unitaire » est un monétaire</li>
+                            <li>« Date commande » et « A livrer avant » et « Date envoi » sont des dates(jj/mm/aaaa), « Port » est un monétaire</li>
+                            <li>« Remise (%) » est un pourcentage</li>
                         </ul>
                     </li>
                     <li>
                         Contraintes d'intégrités (CI) déclarative :
                         <ul>
-                            <li>"N° fournisseur" est une clé primaire et ne doit pas être NULL, "Société", "Contact", "Adresse", "Ville", "Code posta", "Pays" et "Téléphone" ne doivent pas être NULL</li>
-                            <li>"Réf produit" est une clé primaire et ne doit pas être NULL, "Code catégorie", "Nom du produit", "Prix unitaire" et "Unité en stock" ne doivent pas être NULL</li>
-                            <li>"Code catégorie" est une clé primaire et ne doit pas être NULL, "Nom de catégorie" et "Description" ne doivent pas être NULL</li>
+                            <li>« N° fournisseur » est une clé primaire et ne doit pas être NULL, « Société », « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
+                            <li>« Réf produit » est une clé primaire et ne doit pas être NULL, « Code catégorie », « Nom du produit », « Prix unitaire » et « Unité en stock » ne doivent pas être NULL</li>
+                            <li>« Code catégorie » est une clé primaire et ne doit pas être NULL, « Nom de catégorie » et « Description » ne doivent pas être NULL</li>
+                            <li>« Code client » est une clé primaire et ne doit pas être NULL, « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
+                            <li>« N° commande » est une clé primaire et ne doit pas être NULL, « Date commande », « A livrer avant », « Date envoi » et « Port » ne doivent pas être NULL</li>
+                            <li>« Quantité » et « Remise (%) » ne doivent pas être NULL</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Contraintes d'intégrités (CI) référentielle :
+                        <ul>
+                            <li>Les attributs « N° fournisseur » et « Code catégorie » dans la table PRODUIT doivent exister comme valeur de clé primaire « N° fournisseur » dans la table FOURNISSEUR et « Code catégorie » dans la table CATEGORIE</li>
+                            <li>L’attribut « Code client » dans la table COMMANDE doit exister comme valeur de clé primaire « Code client » dans la table CLIENTELE</li>
+                            <li>Les attributs « Réf produit » et « N° commande » dans la table DETAILCOMMANDE doivent exister comme valeur de clé primaire « N° commande » dans la table COMMANE et « Réf produit » dans la table PRODUIT</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Contraintes d'intégrités (CI) d'entité :
+                        <ul>
+                            <li>Un FOURNISSEUR est identifié de manière unique par la valeur de « N° fournisseur », sa clé primaire</li>
+                            <li>Un PRODUIT est identifié de manière unique par la valeur de « Réf produit », sa clé primaire</li>
+                            <li>Une CATEGORIE est identifiée de manière unique par la valeur de « Code catégorie », sa clé primaire</li>
+                            <li>Une CLIENTELE est identifiée de manière unique par la valeur de « Code client », sa clé primaire</li>
+                            <li>Une COMMANDE est identifiée de manière unique par la valeur de « N° commande », sa clé primaire</li>
+                            <li>Un DETAILCOMMANDE est identifié de manière unique par un couple composé de la « Réf produit » et de « N° commande » qui identifie la commande</li>
                         </ul>
                     </li>
                 </ul>
+                </div>
 
             </article>
         </li>
     </ol>
 </main>
 <footer>
-
+    <h4>A propos</h4>
+    <p><a href="accueil.html">Le projet</a><br>
+        <a href="assets/comptes_rendus.zip">Télécharger les comptes-rendus détaillés</a></p>
+    <p>Anthony DE OLIVEIRA - Rida BATTACHI - Maxime COURDAVAULT © 2024</p>
 </footer>
 </body>
 </html>

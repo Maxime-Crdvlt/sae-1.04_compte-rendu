@@ -1,7 +1,7 @@
 body {
     display: grid;
-    grid-template-columns: 15fr 85fr;
-    grid-template-rows: auto 80fr auto;
+    grid-template-columns: 20fr 80fr;
+    grid-template-rows: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 }
@@ -16,7 +16,7 @@ header {
     align-items: center;
     justify-content: center;
 }
-h1, h2{
+h1, h2 {
     margin: 0px;
     padding: 0px;
 }
@@ -24,22 +24,37 @@ h1, h2{
 
 
 /* Barre de Navigation */
-nav {
-    border: solid 2.5px black;
-    grid-column: 1/2;
-    grid-row: 2/3;
-    display: flex;
-    justify-content: center;
+aside {
     background-color: white;
     position: sticky;
     top: 5px;
     align-self: start;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+nav, .sommaire {
+    border: solid 2.5px black;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    margin-bottom: 5px;
 }
 nav > ul, nav > li {
+    list-style-type: none;
     padding-inline-start: 0px;
     justify-items: center;
-    list-style-type: none;
     text-align: center;
+    margin: 10px;
+}
+.sommaire > ol {
+    list-style-type: upper-roman;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.sommaire > h4, nav > h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 /* Barre de Navigation */
 
@@ -65,14 +80,31 @@ main {
 main > ol {
     list-style-type: upper-roman;
 }
+#conclusion > div {
+    border: solid 1px;
+    padding: 5px;
+    margin: 0px;
+}
+img {
+    width: 75%;
+    height: 75%;
+}
 /* Main - Articles */
 
 
+/* Footer */
 footer {
     border: solid 2.5px black;
     grid-column: 1/3;
     grid-row: 3/4;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
+footer > h4, footer > p {
+    text-align: center;
+    margin: 5px;
+    padding: 0px;
+}
+/* Footer */
+
 
