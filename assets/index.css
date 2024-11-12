@@ -2,8 +2,8 @@ body {
     display: grid;
     grid-template-columns: 20fr 80fr;
     grid-template-rows: auto auto auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: 0.25em;
+    grid-row-gap: 0.25em;
 }
 
 /* Header - Titres */
@@ -15,10 +15,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
 }
 h1, h2 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 /* Header - Titres */
 
@@ -27,7 +29,7 @@ h1, h2 {
 aside {
     background-color: white;
     position: sticky;
-    top: 5px;
+    top: 0.25em;
     align-self: start;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -37,24 +39,25 @@ nav, .sommaire {
     display: flex;
     flex-direction: column;
     align-self: start;
-    margin-bottom: 5px;
+    margin-bottom: 0.25em;
+    border-radius: 0.25em;
 }
 nav > ul, nav > li {
     list-style-type: none;
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
     justify-items: center;
     text-align: center;
-    margin: 10px;
+    margin: 0.5em;
 }
 .sommaire > ol {
     list-style-type: upper-roman;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 .sommaire > h4, nav > h4 {
     text-align: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 /* Barre de Navigation */
 
@@ -64,14 +67,15 @@ main {
     border: solid 2.5px black;
     grid-column: 2/3;
     grid-row: 2/3;
+    border-radius: 0.25em;
+    padding: 0.25em;
 }
 .ListesClés {
     list-style-type: lower-latin;
 }
 .SchémaBDR > p {
     border: solid 1px;
-    padding: 5px;
-    margin: 0px;
+    padding: 0.25em;
 }
 .SchémaBDR > h4 {
     text-align: center;
@@ -82,12 +86,35 @@ main > ol {
 }
 #conclusion > div {
     border: solid 1px;
-    padding: 5px;
-    margin: 0px;
+    padding: 0.25em;
 }
 img {
     width: 75%;
     height: 75%;
+}
+table, tr, td, th {
+    table-layout: fixed;
+    border: solid 1px;
+    border-collapse: collapse;
+    padding: 0.25em;
+    text-align: center;
+}
+th {
+    background-color: lightgray;
+}
+caption {
+    text-decoration: underline;
+}
+.requetesTitres, .requetesScreens {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: underline;
+}
+li > img {
+    width: 25%;
+    height: 25%;
 }
 /* Main - Articles */
 
@@ -99,11 +126,13 @@ footer {
     grid-row: 3/4;
     display: flex;
     flex-direction: column;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
 }
 footer > h4, footer > p {
     text-align: center;
-    margin: 5px;
-    padding: 0px;
+    margin: 0.25em;
+    padding: 0;
 }
 /* Footer */
 
