@@ -7,13 +7,16 @@
     <title>SAE 1.04 - Mission n°2</title>
 </head>
 <body>
+
+
 <header>
-    <h1>Mission n°2</h1>
-    <h2>Interrogation d'une base de données - QBE</h2>
+    <h1>Mission n°2 : Interrogation d'une base de données - QBE</h1>
 </header>
+
+
 <aside>
     <nav>
-        <h4>MENU</h4>
+        <h3>MENU</h3>
         <ul>
             <li><a href="accueil.html">Accueil</a></li>
             <li><a href="mission1.html">Mission n°1</a></li>
@@ -24,161 +27,167 @@
         </ul>
     </nav>
     <div class="sommaire">
-        <h4>SOMMAIRE</h4>
+        <h3>SOMMAIRE</h3>
         <ol>
-            <li>Notre mission</li>
-            <li>Notre équipe</li>
-            <li>Sommaire</li>
+            <a href="#contexte"><li>Contexte</li></a>
+            <a href="#requetes"><li>Quatre requêtes intéressantes
+                <ol>
+                    <a href="#requete1"><li>Première requête</li></a>
+                    <a href="#requete2"><li>Deuxième requête</li></a>
+                    <a href="#requete3"><li>Troisième requête</li></a>
+                    <a href="#requete4"><li>Quatrième requête</li></a>
+                </ol>
+            </li></a>
+            <a href="#conclusion"><li>Conclusion</li></a>
         </ol>
     </div>
 </aside>
+
+
 <main>
-    <ol>
-        <li>
-            <article id="contexte">
-                <h3>Contexte</h3>
-                <p>L’objectif de cette mission est de commencer à exploiter la base de données de l’entreprise KDou sur Acces avec le QBE (Query By Example). Afin, par la suite, de pouvoir avoir des analyses et indicateur les plus pertinents possibles de cette base.
-                <br> Nous allons donc analyser et interroger la même base de données avec 4 indicateurs intéressants par QBE (Query by Example) sur Access.</p>
-            </article>
-        </li>
-        <li>
-            <article id="requetes">
-                <h3>Quatre indicateurs intéressants</h3>
-                <ol>
-                    <li>
-                        <h4>Premier indicateur : Quelles sont les catégories de produits vendues par les fournisseurs Singapouriens ?</h4>
-                        <p>On souhaite savoir qu'elles sont les catégories que les entreprises de Singapour vendent à KDou. On va, grâce à cet indicateur, pouvoir savoir sur quel marché sont implantés les fournisseurs Singapouriens.</p>
-                        <div class="requetes">
-                            <div class="requetesTitres">
-                                <p>Requête QBE</p>
-                                <p>Requête SQL (générée par Access)</p>
-                            </div>
-                            <div class="requetesScreens">
-                                <img src="assets/pictures/mission2/requete1_qbe.png">
-                                <img class="sql" src="assets/pictures/mission2/requete1_sql.png">
-                            </div>
-                        </div>
-                        <p>Et voici la table résultat :</p>
-                        <table>
-                            <tr>
-                            <th scope="col">Societe</th>
-                            <th scope="col">Pays</th>
-                            <th scope="col">NoFour</th>
-                            <th scope="col">CodeCateg</th>
-                            <th scope="col">NomCateg</th>
-                            </tr>
-                            <tr>
-                                <td>Leka Trading</td>
-                                <td>Singapour</td>
-                                <td>20</td>
-                                <td>1</td>
-                                <td>Boissons</td>
-                            </tr>
-                            <tr>
-                                <td>Leka Trading</td>
-                                <td>Singapour</td>
-                                <td>20</td>
-                                <td>2</td>
-                                <td>Condiments</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li>
-                        <h4>Deuxième indicateur : Donner le prix moyen de vente des produits, le prix minimum et le prix maximum</h4>
-                        <p>On cherche ici à savoir le prix moyen, le prix minimum et le prix maximum des produits vendus par les fournisseurs présent sur KDou. On va, grâce à cette requête, savoir sur quelle tranche de prix on se trouve environ sur KDou et quelle clientèle peut viser KDou lors de campagne marketing par exemple. </p>
-                        <div class="requetes">
-                            <div class="requetesTitres">
-                                <p>Requête QBE</p>
-                                <p>Requête SQL (générée par Access)</p>
-                            </div>
-                            <div class="requetesScreens">
-                                <img src="assets/pictures/mission2/requete2_qbe.png">
-                                <img class="sql" src="assets/pictures/mission2/requete2_sql.png">
-                            </div>
-                        </div>
-                        <p>Et voici la table résultat :</p>
-                        <table>
-                            <tr>
-                                <th scope="col">MinDePrixUnit</th>
-                                <th scope="col">MoyenneDePrixUnit</th>
-                                <th scope="col">MaxDePrixUnit</th>
-                            </tr>
-                            <tr>
-                                <td>2,08€</td>
-                                <td>33,54€</td>
-                                <td>320,00€</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li>
-                        <h4>Troisième indicateur : Quels sont les produits conditionnés dans du carton ou dans du verre ? </h4>
-                        <p>On cherche à savoir quels produits vendus sur Kdou sont conditionnés soit dans du carton ou bien dans du verre. Avec cette requête, Kdou pourrait mettre en avant ces produits afin d'être plus responsables écologiquement avec des emballages recyclables.</p>
-                        <div class="requetes">
-                            <div class="requetesTitres">
-                                <p>Requête QBE</p>
-                                <p>Requête SQL (générée par Access)</p>
-                            </div>
-                            <div class="requetesScreens">
-                                <img src="assets/pictures/mission2/requete3_qbe.png">
-                                <img src="assets/pictures/mission2/requete3_sql.png">
-                            </div>
-                        </div>
-                        <p>Et voici un extrait de la table résultat :</p>
-                        <img src="assets/pictures/mission2/requete3_resultat.png">
-                    </li>
-                    <li>
-                        <h4>Quatrième indicateur : Dans quelles villes la clientèle est-elle la plus importante ? (Donnons les 3 premières)</h4>
-                        <p>On cherche à savoir quelles villes ont le plus de clients qui commandent sur KDou. Grâce à cette requête KDou peut optimiser le processus de livraison dans ces villes. Cela pourrait justifier l'ouverture de centres logistiques locaux, la modification des itinéraires de livraison, ou la négociation de tarifs préférentiels avec des partenaires logistiques.</p>
-                        <div class="requetes">
-                            <div class="requetesTitres">
-                                <p>Requête QBE</p>
-                                <p>Requête SQL (générée par Access)</p>
-                            </div>
-                            <div class="requetesScreens">
-                                <img src="assets/pictures/mission2/requete4_qbe.png">
-                                <img src="assets/pictures/mission2/requete4_sql.png">
-                            </div>
-                        </div>
-                        <p>Et voici la table résultat :</p>
-                        <table>
-                            <tr>
-                                <th scope="col">VilleCli</th>
-                                <th scope="col">CompteDeCodeCli</th>
-                            </tr>
-                            <tr>
-                                <td>Agen</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Paris</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Nantes</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Lille</td>
-                                <td>3</td>
-                            </tr>
-                        </table>
-                    </li>
-                </ol>
-            </article>
-        </li>
-        <li>
-            <article id="conclusion">
-                <h3>Conclusion</h3>
-                <p>Pour conclure, nous avons trouvé l'utilisation du QBE beaucoup plus facile et intéressant pour intérroger la base de données de manière beaucoup plus complexe et complète.</p>
-            </article>
-        </li>
+    <article id="contexte">
+        <h2>Contexte</h2>
+        <p>L’objectif de cette mission est de commencer à exploiter la base de données de l’entreprise KDou sur Acces avec le QBE (Query By Example). Afin, par la suite, de pouvoir avoir des analyses et indicateur les plus pertinents possibles de cette base.
+            <br> Nous allons donc analyser et interroger la même base de données avec 4 indicateurs intéressants par QBE (Query by Example) sur Access.</p>
+    </article>
+    <article id="requetes">
+        <h2>Quatre indicateurs intéressants</h2>
+        <ol>
+            <li>
+                <h3 id="requete1">Premier indicateur : Quelles sont les catégories de produits vendues par les fournisseurs Singapouriens ?</h3>
+                <p>On souhaite savoir qu'elles sont les catégories que les entreprises de Singapour vendent à KDou. On va, grâce à cet indicateur, pouvoir savoir sur quel marché sont implantés les fournisseurs Singapouriens.</p>
+                <div class="requetes">
+                    <div class="requetesTitres">
+                        <p>Requête QBE</p>
+                        <p>Requête SQL (générée par Access)</p>
+                    </div>
+                    <div class="requetesScreens">
+                        <img src="assets/pictures/mission2/requete1_qbe.png">
+                        <img class="sql" src="assets/pictures/mission2/requete1_sql.png">
+                    </div>
+                </div>
+                <p>Et voici la table résultat :</p>
+                <table>
+                    <tr>
+                        <th scope="col">Societe</th>
+                        <th scope="col">Pays</th>
+                        <th scope="col">NoFour</th>
+                        <th scope="col">CodeCateg</th>
+                        <th scope="col">NomCateg</th>
+                    </tr>
+                    <tr>
+                        <td>Leka Trading</td>
+                        <td>Singapour</td>
+                        <td>20</td>
+                        <td>1</td>
+                        <td>Boissons</td>
+                    </tr>
+                    <tr>
+                        <td>Leka Trading</td>
+                        <td>Singapour</td>
+                        <td>20</td>
+                        <td>2</td>
+                        <td>Condiments</td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h3 id="requete2">Deuxième indicateur : Donner le prix moyen de vente des produits, le prix minimum et le prix maximum</h3>
+                <p>On cherche ici à savoir le prix moyen, le prix minimum et le prix maximum des produits vendus par les fournisseurs présent sur KDou. On va, grâce à cette requête, savoir sur quelle tranche de prix on se trouve environ sur KDou et quelle clientèle peut viser KDou lors de campagne marketing par exemple. </p>
+                <div class="requetes">
+                    <div class="requetesTitres">
+                        <p>Requête QBE</p>
+                        <p>Requête SQL (générée par Access)</p>
+                    </div>
+                    <div class="requetesScreens">
+                        <img src="assets/pictures/mission2/requete2_qbe.png">
+                        <img class="sql" src="assets/pictures/mission2/requete2_sql.png">
+                    </div>
+                </div>
+                <p>Et voici la table résultat :</p>
+                <table>
+                    <tr>
+                        <th scope="col">MinDePrixUnit</th>
+                        <th scope="col">MoyenneDePrixUnit</th>
+                        <th scope="col">MaxDePrixUnit</th>
+                    </tr>
+                    <tr>
+                        <td>2,08€</td>
+                        <td>33,54€</td>
+                        <td>320,00€</td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h3 id="requete3">Troisième indicateur : Quels sont les produits conditionnés dans du carton ou dans du verre ? </h3>
+                <p>On cherche à savoir quels produits vendus sur Kdou sont conditionnés soit dans du carton ou bien dans du verre. Avec cette requête, Kdou pourrait mettre en avant ces produits afin d'être plus responsables écologiquement avec des emballages recyclables.</p>
+                <div class="requetes">
+                    <div class="requetesTitres">
+                        <p>Requête QBE</p>
+                        <p>Requête SQL (générée par Access)</p>
+                    </div>
+                    <div class="requetesScreens">
+                        <img src="assets/pictures/mission2/requete3_qbe.png">
+                        <img src="assets/pictures/mission2/requete3_sql.png">
+                    </div>
+                </div>
+                <p>Et voici un extrait de la table résultat :</p>
+                <img src="assets/pictures/mission2/requete3_resultat.png">
+            </li>
+            <li>
+                <h3 id="requete4">Quatrième indicateur : Dans quelles villes la clientèle est-elle la plus importante ? (Donnons les 3 premières)</h3>
+                <p>On cherche à savoir quelles villes ont le plus de clients qui commandent sur KDou. Grâce à cette requête KDou peut optimiser le processus de livraison dans ces villes. Cela pourrait justifier l'ouverture de centres logistiques locaux, la modification des itinéraires de livraison, ou la négociation de tarifs préférentiels avec des partenaires logistiques.</p>
+                <div class="requetes">
+                    <div class="requetesTitres">
+                        <p>Requête QBE</p>
+                        <p>Requête SQL (générée par Access)</p>
+                    </div>
+                    <div class="requetesScreens">
+                        <img src="assets/pictures/mission2/requete4_qbe.png">
+                        <img src="assets/pictures/mission2/requete4_sql.png">
+                    </div>
+                </div>
+                <p>Et voici la table résultat :</p>
+                <table>
+                    <tr>
+                        <th scope="col">VilleCli</th>
+                        <th scope="col">CompteDeCodeCli</th>
+                    </tr>
+                    <tr>
+                        <td>Agen</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Paris</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Nantes</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Lille</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+    </article>
+    <article id="conclusion">
+        <h2>Conclusion</h2>
+        <p>Pour conclure, nous avons trouvé l'utilisation du QBE beaucoup plus facile et intéressant pour intérroger la base de données de manière beaucoup plus complexe et complète.</p>
+    </article>
     </ol>
 </main>
+
+
 <footer>
-    <h4>A propos</h4>
+    <h3>A propos</h3>
     <p><a href="accueil.html">Le projet</a><br>
         <a href="assets/comptes_rendus.zip">Télécharger les comptes-rendus détaillés</a></p>
     <p>Anthony DE OLIVEIRA - Rida BATTACHI - Maxime COURDAVAULT © 2024</p>
 </footer>
+
+
 </body>
 </html>

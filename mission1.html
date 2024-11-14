@@ -2,18 +2,19 @@
 <html lang=fr>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/index.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/index.css" rel="stylesheet">
     <title>SAE 1.04 - Mission n°1</title>
 </head>
 <body>
 <header>
-    <h1>Mission n°1</h1>
-    <h2>Interrogation d'une base de données - Excel</h2>
+    <h1>Mission n°1 : Interrogation d'une base de données - Excel</h1>
 </header>
+
+
 <aside>
     <nav>
-        <h4>MENU</h4>
+        <h3>MENU</h3>
         <ul>
             <li><a href="accueil.html">Accueil</a></li>
             <li><a href="mission1.html">Mission n°1</a></li>
@@ -24,238 +25,240 @@
         </ul>
     </nav>
     <div class="sommaire">
-        <h4>SOMMAIRE</h4>
+        <h3>SOMMAIRE</h3>
         <ol>
             <a href="#contexte"><li>Contexte</li></a>
             <a href="#analyse"><li>Analyse globale de la base de données</li></a>
-            <a href="#exemples"><li>Explications et exemples</li></a>
+            <a href="#exemples"><li>
+                Explications et exemples
+                <ol>
+                    <a href="#requete1"><li>Première requête</li></a>
+                    <a href="#requete2"><li>Deuxième requête</li></a>
+                    <a href="#requete3"><li>Troisième requête</li></a>
+                </ol>
+            </li></a>
             <a href="#conclusion"><li>Conclusion</li></a>
         </ol>
     </div>
 </aside>
-<main>
-    <ol>
-        <li>
-            <article id="contexte">
-                <h3>Contexte</h3>
-                <p>Dans cette première mission nous allons d'abord prendre en main les données de KDou en étudiant la
-                    base de donnée
-                    et l'interrogeant sur excel.</p>
-            </article>
-        </li>
-        <li>
-            <article id="analyse">
-                <h3>Analyse globale de la base de données</h3>
-                <p>Nous avons d'abord identifiés les clés primaires et secondaires :</p>
-                <ol>
-                    <li>Clés primaires :</li>
-                    <ol class="ListesClés">
-                        <li>Table Fournisseur : l’attribut « N° fournisseur »</li>
-                        <li>Table Produit : l’attribut « Réf produit »</li>
-                        <li>Table Categorie : l’attribut « Code catégorie »</li>
-                        <li>Table Clientele : l’attribut « Code client »</li>
-                        <li>Table Commande : l’attribut « N° commande »</li>
-                        <li>Table DetailCommande : la clé primaire par attributs d’ensemble ici est composée de
-                            l’attribut « Réf
-                            produit » et de l’attribut « N° commande ». Ces deux attributs permettent d’avoir une
-                            unicité.
-                        </li>
-                    </ol>
-                    <li>Clés secondaires</li>
-                    <ol class="ListesClés">
-                        <li>Table Fournisseur : Aucun attribut</li>
-                        <li>Table Produit : les attributs « N° fournisseur » et « Code catégorie »</li>
-                        <li>Table Categorie : Aucun attribut</li>
-                        <li>Table Clientele : Aucun attribut</li>
-                        <li>Table Commande : l’attribut « Code client »</li>
-                        <li>Table DetailCommande : les attributs « Réf produit » et « N° commande »</li>
-                    </ol>
-                </ol>
-                <div class="SchémaBDR">
-                    <h4>On a donc le schéma de la BDR suivant :</h4>
-                    <p><strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact, Fonction,
-                        Adresse, Ville, Région, Code postal, Pays, Téléphone)<br>
-                        <strong>PRODUIT</strong> (<strong><u>Réf produit</u></strong>, <em>N° fournisseur</em>, <em>Code
-                            catégorie</em>, Nom du produit, Quantité par unité, Prix unitaire, Unités en stock)<br>
-                        <strong>CATEGORIES</strong> (<strong><u>Code catégorie</u></strong>, Nom de catégorie,
-                        Description)<br>
-                        <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse,
-                        Ville, Code postal, Pays, Téléphone)<br>
-                        <strong>COMMANDE</strong> (<strong><u>N° commande</u></strong>, <em>Code client</em>, Date
-                        commande, A livrer avant, Date envoi, Port)<br>
-                        <strong>DETAILCOMMANDE</strong> (<strong><em><u>Réf produit</u></em></strong>, <strong><em>
-                            <Su>N° commande</Su>
-                        </em></strong>, Prix unitaire, Quantité, Remise (%))
-                    </p>
-                </div>
-            </article>
-        </li>
-        <li>
-            <article id="exemples">
-                <h3>Explications et exemples</h3>
-                <p>Voici quelques exemples et explications afin de comprendre au mieux le schéma ci-dessus, nous allons
-                    chercher plusieurs informations dans la base de données
-                    excel à travers des questions.</p>
-                <ol>
-                    <li>
-                        <h4>Combien y a-t-il de clients Nantais ?</h4>
-                        <p>Pour trouver cette information nous allons donc aller dans la table CLIENTELE et appliquer un
-                            filtre avec "*nantes*".
-                            On remarque donc qu'il y a seulement 3 clients Nantais :</p>
-                        <table>
-                            <caption>Tableau des 3 clients Nantais</caption>
-                            <tr>
-                                <th scope="col">Code client</th>
-                                <th scope="col">Société</th>
-                                <th scope="col">Contact</th>
-                                <th scope="col">Adresse</th>
-                                <th scope="col">Ville</th>
-                                <th scope="col">Code postal</th>
-                                <th scope="col">Pays</th>
-                                <th scope="col">Téléphone</th>
-                            </tr>
-                            <tr>
-                                <td>COMMI</td>
-                                <td>Pedro's house</td>
-                                <td>Pedro Afonso</td>
-                                <td>67, rue des Cinquante Otages</td>
-                                <td>Nantes</td>
-                                <td>44000</td>
-                                <td>France</td>
-                                <td>06.40.67.88.88</td>
-                            </tr>
-                            <tr>
-                                <td>DRACD</td>
-                                <td>Table nantaise</td>
-                                <td>Sven Ottlieb</td>
-                                <td>54, rue Royale</td>
-                                <td>Nantes</td>
-                                <td>44000</td>
-                                <td>France</td>
-                                <td>06.40.32.21.21</td>
-                            </tr>
-                            <tr>
-                                <td>FURIB</td>
-                                <td>Verre à soi</td>
-                                <td>Lino Rodriguez</td>
-                                <td>6, rue Jean Baptiste Lulli</td>
-                                <td>Nantes</td>
-                                <td>44000</td>
-                                <td>France</td>
-                                <td>06.61.77.61.10</td>
-                            </tr>
-                        </table>
-                        <p>On voit donc ici que la table CLIENTELE est organisée de la manière suivante :<br>
-                            <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse,
-                            Ville, Code postal, Pays, Téléphone)</p>
-                    </li>
-                    <li>
-                        <h4>Quelle est l'adresse du fournisseur Marie Delamare ?</h4>
-                        <p>Pour trouver cette information, nous allons directement faire une recherche dans la table
-                            FOURNISSEUR, on a donc l'adresse suivante :<br>
-                            22 rue H. Voiron Montceau [Region NULL] 71300 France</p>
-                        <img src="assets/pictures/mission1/mission1_AdresseFournisseur.png"
-                             alt="Table FOURNISSEUR avec la recherche active sur Excel">
-                        <p>On voit donc ici que la table FOURNISSEUR est organisée de la manière suivante :<br>
-                            <strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact,
-                            Fonction, Adresse, Ville, Région, Code postal, Pays, Téléphone)<br></p>
-                    </li>
-                    <li>
-                        <h4>Quelle est l'offre de produits Suédois ?</h4>
-                        <p>- Pour trouver cette information nous avons d'abord cherchés les fournisseurs Suédois via un filtre dans la table FOURNISSEUR
-                        (on remarque d'ailleurs qu'il y a deux valeurs pour représenter le pays Suède) :</p>
-                        <img src="assets/pictures/mission1/mission1_OffreSuedoise.png" alt="Table FOURNISSEUR avec le filtre appliqué sur Excel">
-                        <p>- Nous avons ensuite appliqué un filtre dans la table PRODUIT sur l'attribut "N° fournisseur" avec les
-                        2 "N° fournisseur" trouvés ci-dessus (9 et 17) :</p>
-                        <img src="assets/pictures/mission1/mission1_OffreSuedoise1.png" alt="Table PRODUIT avec le filtre appliqué sur Excel">
-                        <p>- Nous pouvons donc maintenant créer une table "résultat" comme ci-dessous qui résume les recherche :</p>
-                        <table>
-                            <caption>Résultats de la recherche sur l'offre de produits Suèdois</caption>
-                            <tr>
-                                <th scope="col">Fournisseurs</th>
-                                <th scope="col">Offre de produits</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fournisseur PB Knäckebröd AB [9]</th>
-                                <td>Tunnbröd, knäckebrod Kala, Dea Surströmming, Kanelbullar Stock</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fournisseur Svensk Sjöföda AB [17]</th>
-                                <td>Inlagd Sill, Gravad lax, Röd Kaviar</td>
-                            </tr>
-                        </table>
-                    </li>
-                </ol>
-            </article>
-        </li>
-        <li>
-            <article id="conclusion">
-                <h3>Conclusion</h3>
-                <p>Pour conclure sur cette première approche de la base de données de KDou, nous pouvons affirmer que les données ne sont pas de bonne qualité.
-                    En effet, pendant notre étude nous avons relevé une multitude d'erreurs et d'incohérences.
-                    Aussi, il était très compliqué de faire des recherches plus avancées sur la base de données étant donné que nous étions sur Excel
-                    et qu'il n'y a pas de contraintes d'intégrités.</p>
-                <p>Pour améliorer les données on peut mettre en place plusieurs petites choses concernant la structure même de la base de données,
-                    en voici quelques exemples :</p>
-                <ul>
-                    <li>Arrondir les remises pour que la donnée soit plus lisible.</li>
-                    <li>Ecrire toutes les dates sous la forme jj/mm/aaaa pour faciliter les recherches dans la table.</li>
-                    <li>Représenter chaque pays des clients et fournisseurs par une valeur pour faciliter les recherches dans les tables.</li>
-                    <li>Remplir entièrement l'attribut "Région> dans la table FOURNISSEUR qui est très peu utilisées et pourrait servir pour des recherches plus précises et poussées.</li>
-                </ul>
-                <p>Mais, il faudra surtout changer d'outils pour parcourir cette base de données en utilisant par exemple Microsoft Access, ce qui nous permettrait d'appliquer des contraintes d'intégrité et ainsi "lier" les tables entre elles et avoir un ensemble de données beaucoup plus cohérent. On pourrait appliquer les contraintes d'intégrités suivantes :</p>
-                <div>
-                <ul>
-                    <li>
-                        Contraintes d'intégrités (CI) de domaine :
-                        <ul>
-                            <li>« Prix unitaire » est un monétaire</li>
-                            <li>« Date commande » et « A livrer avant » et « Date envoi » sont des dates(jj/mm/aaaa), « Port » est un monétaire</li>
-                            <li>« Remise (%) » est un pourcentage</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Contraintes d'intégrités (CI) déclarative :
-                        <ul>
-                            <li>« N° fournisseur » est une clé primaire et ne doit pas être NULL, « Société », « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
-                            <li>« Réf produit » est une clé primaire et ne doit pas être NULL, « Code catégorie », « Nom du produit », « Prix unitaire » et « Unité en stock » ne doivent pas être NULL</li>
-                            <li>« Code catégorie » est une clé primaire et ne doit pas être NULL, « Nom de catégorie » et « Description » ne doivent pas être NULL</li>
-                            <li>« Code client » est une clé primaire et ne doit pas être NULL, « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
-                            <li>« N° commande » est une clé primaire et ne doit pas être NULL, « Date commande », « A livrer avant », « Date envoi » et « Port » ne doivent pas être NULL</li>
-                            <li>« Quantité » et « Remise (%) » ne doivent pas être NULL</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Contraintes d'intégrités (CI) référentielle :
-                        <ul>
-                            <li>Les attributs « N° fournisseur » et « Code catégorie » dans la table PRODUIT doivent exister comme valeur de clé primaire « N° fournisseur » dans la table FOURNISSEUR et « Code catégorie » dans la table CATEGORIE</li>
-                            <li>L’attribut « Code client » dans la table COMMANDE doit exister comme valeur de clé primaire « Code client » dans la table CLIENTELE</li>
-                            <li>Les attributs « Réf produit » et « N° commande » dans la table DETAILCOMMANDE doivent exister comme valeur de clé primaire « N° commande » dans la table COMMANE et « Réf produit » dans la table PRODUIT</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Contraintes d'intégrités (CI) d'entité :
-                        <ul>
-                            <li>Un FOURNISSEUR est identifié de manière unique par la valeur de « N° fournisseur », sa clé primaire</li>
-                            <li>Un PRODUIT est identifié de manière unique par la valeur de « Réf produit », sa clé primaire</li>
-                            <li>Une CATEGORIE est identifiée de manière unique par la valeur de « Code catégorie », sa clé primaire</li>
-                            <li>Une CLIENTELE est identifiée de manière unique par la valeur de « Code client », sa clé primaire</li>
-                            <li>Une COMMANDE est identifiée de manière unique par la valeur de « N° commande », sa clé primaire</li>
-                            <li>Un DETAILCOMMANDE est identifié de manière unique par un couple composé de la « Réf produit » et de « N° commande » qui identifie la commande</li>
-                        </ul>
-                    </li>
-                </ul>
-                </div>
 
-            </article>
-        </li>
-    </ol>
+
+<main>
+    <article id="contexte">
+        <h2>Contexte</h2>
+        <p>Dans cette première mission nous allons d'abord prendre en main les données de KDou en étudiant la
+            base de donnée
+            et l'interrogeant sur excel.</p>
+    </article>
+    <article id="analyse">
+        <h2>Analyse globale de la base de données</h2>
+        <p>Nous avons d'abord identifiés les clés primaires et secondaires :</p>
+        <ol>
+            <li>Clés primaires :</li>
+            <ol class="ListesClés">
+                <li>Table Fournisseur : l’attribut « N° fournisseur »</li>
+                <li>Table Produit : l’attribut « Réf produit »</li>
+                <li>Table Categorie : l’attribut « Code catégorie »</li>
+                <li>Table Clientele : l’attribut « Code client »</li>
+                <li>Table Commande : l’attribut « N° commande »</li>
+                <li>Table DetailCommande : la clé primaire par attributs d’ensemble ici est composée de
+                    l’attribut « Réf
+                    produit » et de l’attribut « N° commande ». Ces deux attributs permettent d’avoir une
+                    unicité.
+                </li>
+            </ol>
+            <li>Clés secondaires</li>
+            <ol class="ListesClés">
+                <li>Table Fournisseur : Aucun attribut</li>
+                <li>Table Produit : les attributs « N° fournisseur » et « Code catégorie »</li>
+                <li>Table Categorie : Aucun attribut</li>
+                <li>Table Clientele : Aucun attribut</li>
+                <li>Table Commande : l’attribut « Code client »</li>
+                <li>Table DetailCommande : les attributs « Réf produit » et « N° commande »</li>
+            </ol>
+        </ol>
+        <h3>On a donc le schéma de la BDR suivant :</h3>
+        <div class="SchémaBDR">
+            <p><strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact, Fonction,
+                Adresse, Ville, Région, Code postal, Pays, Téléphone)<br>
+                <strong>PRODUIT</strong> (<strong><u>Réf produit</u></strong>, <em>N° fournisseur</em>, <em>Code
+                    catégorie</em>, Nom du produit, Quantité par unité, Prix unitaire, Unités en stock)<br>
+                <strong>CATEGORIES</strong> (<strong><u>Code catégorie</u></strong>, Nom de catégorie,
+                Description)<br>
+                <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse,
+                Ville, Code postal, Pays, Téléphone)<br>
+                <strong>COMMANDE</strong> (<strong><u>N° commande</u></strong>, <em>Code client</em>, Date
+                commande, A livrer avant, Date envoi, Port)<br>
+                <strong>DETAILCOMMANDE</strong> (<strong><em><u>Réf produit</u></em></strong>, <strong><em>
+                    <Su>N° commande</Su>
+                </em></strong>, Prix unitaire, Quantité, Remise (%))
+            </p>
+        </div>
+    </article>
+    <article id="exemples">
+        <h2>Explications et exemples</h2>
+        <p>Voici quelques exemples et explications afin de comprendre au mieux le schéma ci-dessus, nous allons
+            chercher plusieurs informations dans la base de données
+            excel à travers des questions.</p>
+        <ol>
+            <li>
+                <h3 id="requete1">Combien y a-t-il de clients Nantais ?</h3>
+                <p>Pour trouver cette information, nous allons donc aller dans la table CLIENTELE et appliquer un
+                    filtre avec "*nantes*".
+                    On remarque ainsi qu'il y a seulement 3 clients Nantais :</p>
+                <table>
+                    <caption>Tableau des 3 clients Nantais</caption>
+                    <tr>
+                        <th scope="col">Code client</th>
+                        <th scope="col">Société</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Pays</th>
+                        <th scope="col">Téléphone</th>
+                    </tr>
+                    <tr>
+                        <td>COMMI</td>
+                        <td>Pedro's house</td>
+                        <td>Pedro Afonso</td>
+                        <td>67, rue des Cinquante Otages</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.40.67.88.88</td>
+                    </tr>
+                    <tr>
+                        <td>DRACD</td>
+                        <td>Table nantaise</td>
+                        <td>Sven Ottlieb</td>
+                        <td>54, rue Royale</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.40.32.21.21</td>
+                    </tr>
+                    <tr>
+                        <td>FURIB</td>
+                        <td>Verre à soi</td>
+                        <td>Lino Rodriguez</td>
+                        <td>6, rue Jean Baptiste Lulli</td>
+                        <td>Nantes</td>
+                        <td>44000</td>
+                        <td>France</td>
+                        <td>06.61.77.61.10</td>
+                    </tr>
+                </table>
+                <p>On voit donc ici que la table CLIENTELE est organisée de la manière suivante :<br>
+                    <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse,
+                    Ville, Code postal, Pays, Téléphone)</p>
+            </li>
+            <li>
+                <h3 id="requete2">Quelle est l'adresse du fournisseur Marie Delamare ?</h3>
+                <p>Pour trouver cette information, nous allons directement faire une recherche dans la table
+                    FOURNISSEUR, on a donc l'adresse suivante :<br>
+                    22 rue H. Voiron Montceau [Region NULL] 71300 France</p>
+                <img alt="Table FOURNISSEUR avec la recherche active sur Excel"
+                     src="assets/pictures/mission1/mission1_AdresseFournisseur.png">
+                <p>On voit donc ici que la table FOURNISSEUR est organisée de la manière suivante :<br>
+                    <strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact,
+                    Fonction, Adresse, Ville, Région, Code postal, Pays, Téléphone)<br></p>
+            </li>
+            <li>
+                <h3 id="requete3">Quelle est l'offre de produits Suédois ?</h3>
+                <p>- Pour trouver cette information nous avons d'abord cherchés les fournisseurs Suédois via un filtre dans la table FOURNISSEUR
+                    (on remarque d'ailleurs qu'il y a deux valeurs pour représenter le pays Suède) :</p>
+                <img alt="Table FOURNISSEUR avec le filtre appliqué sur Excel" src="assets/pictures/mission1/mission1_OffreSuedoise.png">
+                <p>- Nous avons ensuite appliqué un filtre dans la table PRODUIT sur l'attribut "N° fournisseur" avec les
+                    2 "N° fournisseur" trouvés ci-dessus (9 et 17) :</p>
+                <img alt="Table PRODUIT avec le filtre appliqué sur Excel" src="assets/pictures/mission1/mission1_OffreSuedoise1.png">
+                <p>- Nous pouvons donc maintenant créer une table "résultat" comme ci-dessous qui résume les recherche :</p>
+                <table>
+                    <caption>Résultats de la recherche sur l'offre de produits Suèdois</caption>
+                    <tr>
+                        <th scope="col">Fournisseurs</th>
+                        <th scope="col">Offre de produits</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fournisseur PB Knäckebröd AB [9]</th>
+                        <td>Tunnbröd, knäckebrod Kala, Dea Surströmming, Kanelbullar Stock</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fournisseur Svensk Sjöföda AB [17]</th>
+                        <td>Inlagd Sill, Gravad lax, Röd Kaviar</td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+    </article>
+    <article id="conclusion">
+        <h2>Conclusion</h2>
+        <p>Pour conclure sur cette première approche de la base de données de KDou, nous pouvons affirmer que les données ne sont pas de bonne qualité.
+            En effet, pendant notre étude nous avons relevé une multitude d'erreurs et d'incohérences.
+            Aussi, il était très compliqué de faire des recherches plus avancées sur la base de données étant donné que nous étions sur Excel
+            et qu'il n'y a pas de contraintes d'intégrités.</p>
+        <p>Pour améliorer les données on peut mettre en place plusieurs petites choses concernant la structure même de la base de données,
+            en voici quelques exemples :</p>
+        <ul>
+            <li>Arrondir les remises pour que la donnée soit plus lisible.</li>
+            <li>Ecrire toutes les dates sous la forme jj/mm/aaaa pour faciliter les recherches dans la table.</li>
+            <li>Représenter chaque pays des clients et fournisseurs par une valeur pour faciliter les recherches dans les tables.</li>
+            <li>Remplir entièrement l'attribut "Région" dans la table FOURNISSEUR qui est très peu utilisées et pourrait servir pour des recherches plus précises et poussées.</li>
+        </ul>
+        <p>Mais, il faudra surtout changer d'outils pour parcourir cette base de données en utilisant par exemple Microsoft Access, ce qui nous permettrait d'appliquer des contraintes d'intégrité et ainsi "lier" les tables entre elles et avoir un ensemble de données beaucoup plus cohérent. On pourrait appliquer les contraintes d'intégrités suivantes :</p>
+        <div>
+            <ul>
+                <li>
+                    Contraintes d'intégrités (CI) de domaine :
+                    <ul>
+                        <li>« Prix unitaire » est un monétaire</li>
+                        <li>« Date commande » et « A livrer avant » et « Date envoi » sont des dates(jj/mm/aaaa), « Port » est un monétaire</li>
+                        <li>« Remise (%) » est un pourcentage</li>
+                    </ul>
+                </li>
+                <li>
+                    Contraintes d'intégrités (CI) déclarative :
+                    <ul>
+                        <li>« N° fournisseur » est une clé primaire et ne doit pas être NULL, « Société », « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
+                        <li>« Réf produit » est une clé primaire et ne doit pas être NULL, « Code catégorie », « Nom du produit », « Prix unitaire » et « Unité en stock » ne doivent pas être NULL</li>
+                        <li>« Code catégorie » est une clé primaire et ne doit pas être NULL, « Nom de catégorie » et « Description » ne doivent pas être NULL</li>
+                        <li>« Code client » est une clé primaire et ne doit pas être NULL, « Contact », « Adresse », « Ville », « Code postal », « Pays » et « Téléphone » ne doivent pas être NULL</li>
+                        <li>« N° commande » est une clé primaire et ne doit pas être NULL, « Date commande », « A livrer avant », « Date envoi » et « Port » ne doivent pas être NULL</li>
+                        <li>« Quantité » et « Remise (%) » ne doivent pas être NULL</li>
+                    </ul>
+                </li>
+                <li>
+                    Contraintes d'intégrités (CI) référentielle :
+                    <ul>
+                        <li>Les attributs « N° fournisseur » et « Code catégorie » dans la table PRODUIT doivent exister comme valeur de clé primaire « N° fournisseur » dans la table FOURNISSEUR et « Code catégorie » dans la table CATEGORIE</li>
+                        <li>L’attribut « Code client » dans la table COMMANDE doit exister comme valeur de clé primaire « Code client » dans la table CLIENTELE</li>
+                        <li>Les attributs « Réf produit » et « N° commande » dans la table DETAILCOMMANDE doivent exister comme valeur de clé primaire « N° commande » dans la table COMMANE et « Réf produit » dans la table PRODUIT</li>
+                    </ul>
+                </li>
+                <li>
+                    Contraintes d'intégrités (CI) d'entité :
+                    <ul>
+                        <li>Un FOURNISSEUR est identifié de manière unique par la valeur de « N° fournisseur », sa clé primaire</li>
+                        <li>Un PRODUIT est identifié de manière unique par la valeur de « Réf produit », sa clé primaire</li>
+                        <li>Une CATEGORIE est identifiée de manière unique par la valeur de « Code catégorie », sa clé primaire</li>
+                        <li>Une CLIENTELE est identifiée de manière unique par la valeur de « Code client », sa clé primaire</li>
+                        <li>Une COMMANDE est identifiée de manière unique par la valeur de « N° commande », sa clé primaire</li>
+                        <li>Un DETAILCOMMANDE est identifié de manière unique par un couple composé de la « Réf produit » et de « N° commande » qui identifie la commande</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </article>
 </main>
+
+
 <footer>
-    <h4>A propos</h4>
+    <h3>A propos</h3>
     <p><a href="accueil.html">Le projet</a><br>
         <a href="assets/comptes_rendus.zip">Télécharger les comptes-rendus détaillés</a></p>
     <p>Anthony DE OLIVEIRA - Rida BATTACHI - Maxime COURDAVAULT © 2024</p>
 </footer>
+
+
 </body>
 </html>
