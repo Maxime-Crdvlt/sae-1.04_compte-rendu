@@ -107,7 +107,7 @@ table, tr, td, th {
     text-align: center;
 }
 main table {
-    margin: auto;
+    margin: 0.25em auto;
 }
 th {
     background-color: lightblue;
