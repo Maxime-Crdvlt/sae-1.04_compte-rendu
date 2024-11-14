@@ -13,7 +13,6 @@ body {
 header {
     grid-column: 1/3;
     grid-row: 1/2;
-    align-items: center;
     border-bottom-left-radius: 1.5em;
     border-bottom-right-radius: 1.5em;
     background-color: #072A40;
@@ -63,13 +62,13 @@ nav > ul {
 }
 .sommaire h3, nav h3 {
     text-align: center;
+    margin-left: 0;
     margin-bottom: 0.25em;
     margin-top: 0.5em;
 }
 .TitreAside {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -77,8 +76,8 @@ nav > ul {
 }
 .TitreAside img {
     display: block;
-    width: 10%;
-    height: 10%;
+    width: 7.5%;
+    height: 7.5%;
     margin: 0;
     padding: 0;
 }
@@ -142,7 +141,7 @@ h2 {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
 }
-h1, h2, h3, h4 {
+h1, h3, h4 {
     margin: 0.25em;
     padding: 0.25em;
 }
