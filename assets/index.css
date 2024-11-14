@@ -65,6 +65,22 @@ nav > ul {
     margin-bottom: 0.25em;
     margin-top: 0.5em;
 }
+.TitreAside {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+.TitreAside img {
+    display: block;
+    width: 10%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+}
 /* Barre de Navigation */
 
 
@@ -82,9 +98,10 @@ a:link, a:visited, a:active {
 .ListesClés {
     list-style-type: lower-latin;
 }
-div {
+main div {
     border: solid 1px;
     padding: 0.25em;
+    margin: 0.25em;
 }
 /*Tableaux*/
 table, tr, td, th {
@@ -138,8 +155,10 @@ article {
     flex-wrap: wrap;
 }
 img {
+    display: block;
     width: 50%;
     height: 50%;
+    margin: 0 auto;
 }
 main ol, main ul {
     margin: 0;
