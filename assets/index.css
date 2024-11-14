@@ -61,18 +61,14 @@ nav > ul {
     margin-top: 0.25em;
 }
 .sommaire h3, nav h3 {
-    text-align: center;
     margin-left: 0;
-    margin-bottom: 0.25em;
-    margin-top: 0.5em;
+    margin-right: 0;
 }
 .TitreAside {
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
+    padding-left: 1em;
 }
 .TitreAside img {
     display: block;
