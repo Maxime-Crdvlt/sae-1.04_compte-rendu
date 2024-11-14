@@ -103,7 +103,7 @@ table, tr, td, th {
     border: solid 1px;
     border-collapse: collapse;
     padding: 0.25em;
-    margin: 0.25em auto;
+    margin: auto;
     text-align: center;
 }
 th {
@@ -146,6 +146,7 @@ article {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-bottom: 0.25em;
 }
 img {
     display: block;
