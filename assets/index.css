@@ -143,9 +143,7 @@ main p {
     padding: 0.25em;
 }
 article {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: block;
     margin-bottom: 0.25em;
     margin-top: 0.25em;
 }
