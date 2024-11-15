@@ -14,7 +14,7 @@
 <aside>
     <nav>
         <div class="TitreAside">
-            <img src="assets/pictures/icons/menu.png"> <h3>MENU</h3>
+            <img src="assets/pictures/icons/menu.png" alt="icone du menu"> <h3>MENU</h3>
         </div>
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -27,20 +27,21 @@
     </nav>
     <div class="sommaire">
         <div class="TitreAside">
-            <img src="assets/pictures/icons/sommaire.png"> <h3>SOMMAIRE</h3>
+            <img src="assets/pictures/icons/sommaire.png" alt="icone du sommaire"> <h3>SOMMAIRE</h3>
         </div>
         <ol>
-            <a href="#contexte"><li>Contexte</li></a>
-            <a href="#analyse"><li>Analyse globale de la base de données</li></a>
-            <a href="#exemples"><li>
-                Explications et exemples
+            <li><a href="#contexte">Contexte</a></li>
+            <li><a href="#analyse">Analyse globale de la base de données</a></li>
+            <li>
+                <a href="#exemples">Explications et exemples
                 <ol>
-                    <a href="#requete1"><li>Première requête</li></a>
-                    <a href="#requete2"><li>Deuxième requête</li></a>
-                    <a href="#requete3"><li>Troisième requête</li></a>
+                    <li><a href="#requete1">Première requête</a></li>
+                    <li><a href="#requete2">Deuxième requête</a></li>
+                    <li><a href="#requete3">Troisième requête</a></li>
                 </ol>
-            </li></a>
-            <a href="#conclusion"><li>Conclusion</li></a>
+                </a>
+            </li>
+            <li><a href="#conclusion">Conclusion</a></li>
         </ol>
     </div>
 </aside>
@@ -54,7 +55,7 @@
         <h2>Analyse globale de la base de données</h2>
         <p>Nous avons d'abord identifié les clés primaires et secondaires :</p>
         <ol>
-            <li>Clés primaires :</li>
+            <li>Clés primaires :
             <ol class="ListesClés">
                 <li>Table Fournisseur : l’attribut « N° fournisseur »</li>
                 <li>Table Produit : l’attribut « Réf produit »</li>
@@ -67,7 +68,8 @@
                     unicité.
                 </li>
             </ol>
-            <li>Clés secondaires</li>
+            </li>
+            <li>Clés secondaires
             <ol class="ListesClés">
                 <li>Table Fournisseur : Aucun attribut</li>
                 <li>Table Produit : les attributs « N° fournisseur » et « Code catégorie »</li>
@@ -76,6 +78,7 @@
                 <li>Table Commande : l’attribut « Code client »</li>
                 <li>Table DetailCommande : les attributs « Réf produit » et « N° commande »</li>
             </ol>
+            </li>
         </ol>
         <h4><u>On a donc le schéma de la BDR suivant :</u></h4>
         <div class="SchémaBDR">
@@ -90,7 +93,7 @@
                 <strong>COMMANDE</strong> (<strong><u>N° commande</u></strong>, <em>Code client</em>, Date
                 commande, A livrer avant, Date envoi, Port)<br>
                 <strong>DETAILCOMMANDE</strong> (<strong><em><u>Réf produit</u></em></strong>, <strong><em>
-                    <Su>N° commande</Su>
+                    <u>N° commande</u>
                 </em></strong>, Prix unitaire, Quantité, Remise (%))
             </p>
         </div>
@@ -252,8 +255,8 @@
 
 <footer>
     <h3>A propos</h3>
-    <p><a href="index.html">Le projet</a><br>
-        <a href="assets/comptes_rendus.zip">Télécharger les comptes-rendus détaillés</a></p>
+    <a href="index.html">Le projet</a> <br>
+    <a href="assets/comptes_rendus.zip">Télécharger les comptes-rendus détaillés</a>
     <p>Anthony DE OLIVEIRA - Rida BATTACHI - Maxime COURDAVAULT © 2024</p>
 </footer>
 
