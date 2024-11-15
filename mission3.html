@@ -14,7 +14,7 @@
 <aside>
     <nav>
         <div class="TitreAside">
-            <img src="assets/pictures/icons/menu.png"> <h3>MENU</h3>
+            <img src="assets/pictures/icons/menu.png" alt="icone du menu"> <h3>MENU</h3>
         </div>
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -27,7 +27,7 @@
     </nav>
     <div class="sommaire">
         <div class="TitreAside">
-            <img src="assets/pictures/icons/sommaire.png"> <h3>SOMMAIRE</h3>
+            <img src="assets/pictures/icons/sommaire.png" alt="icone du sommaire"> <h3>SOMMAIRE</h3>
         </div>
         <ol>
             <a href="#contexte"><li>Contexte</li></a>
@@ -58,16 +58,19 @@
             <li>
                 <h3>Première requête</h3>
                 <p>La question suivante a été posée : « Quel est le chiffre d’affaires généré par la catégorie desserts et boissons ? » <br>
-                    Cette question est pertinente, car il est question de savoir s’il y a une réelle lucrativité vis-à-vis de ces catégories. Cette requête nous permettra ainsi d’avoir connaissance du chiffre d’affaires généré par ces catégories :</p>
+                    Cette question est pertinente, car il est question de savoir s’il y a une réelle lucrativité vis-à-vis de ces catégories. Cette requête nous permettra ainsi d’avoir connaissance du chiffre d’affaires généré par ces catégories :
+                </p>
                 <h4><u>Requête SQL</u></h4>
                 <div class="sql">
                     <p>SELECT C.NomCateg, Sum(D.QteCom*D.PrixUnitCli*(1-D.Remise)) AS ChiffreAffaires <br>
                         FROM (DetailCommande AS D LEFT JOIN Produit AS P ON D.RefProd = P.RefProd) LEFT JOIN Categorie AS C ON P.CodeCateg = C.CodeCateg <br>
                         WHERE (((C.NomCateg) In ('desserts','boissons'))) <br>
-                        GROUP BY C.NomCateg; <br></p>
+                        GROUP BY C.NomCateg;
+                    </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
                 <table>
+                    <caption>Table résultat de la requête 1 du thème 1</caption>
                     <tr>
                         <th scope="col">NomCateg</th>
                         <th scope="col">ChiffreAffaires</th>
@@ -86,15 +89,17 @@
                 <h3>Seconde requête</h3>
                 <p>La question suivante a été posée : « Quels sont les pays de provenance de ces catégories ? » <br>
                     Cette question suscite l’acuité, car celle-ci permet de savoir par le biais de notre requête s’il y a des pays voisins à la France (où se trouve KDou) afin de tout d’abord avoir des frais de ports moins conséquents, mais également de savoir s'il y a tout simplement une provenance de ces catégories en France. Cela faciliterait grandement la commande de celles-ci.
-                    Cette requête nous permettra ainsi d’avoir connaissance des pays de provenances de ces catégories.</p>
+                    Cette requête nous permettra ainsi d’avoir connaissance des pays de provenances de ces catégories.
+                </p>
                 <h4><u>Requête SQL</u></h4>
                 <div class="sql">
                     <p>SELECT DISTINCT Categorie.NomCateg, Fournisseur.Pays <br>
                         FROM Fournisseur INNER JOIN (Categorie INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg) ON Fournisseur.NoFour = Produit.NoFour <br>
-                        WHERE (((Categorie.NomCateg)="desserts" Or (Categorie.NomCateg)="boissons")); <br></p>
+                        WHERE (((Categorie.NomCateg)="desserts" Or (Categorie.NomCateg)="boissons"));
+                    </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
-                <img src="assets/pictures/mission3/theme1-requete2.png">
+                <img src="assets/pictures/mission3/theme1-requete2.png" alt="Table résultat de la requête 2 du thème 1 sur Access">
             </li>
         </ol>
     </article>
@@ -113,10 +118,12 @@
                     <p>SELECT DISTINCT Categorie.CodeCateg, Count(Produit.RefProd) AS CompteDeRefProd <br>
                         FROM (Categorie INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg) LEFT JOIN DetailCommande ON Produit.RefProd = DetailCommande.RefProd <br>
                         WHERE (((DetailCommande.RefProd) Is Null)) <br>
-                        GROUP BY Categorie.CodeCateg; <br></p>
+                        GROUP BY Categorie.CodeCateg;
+                    </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
                 <table>
+                    <caption>Table résultat de la requête 1 du thème 2</caption>
                     <tr>
                         <th scope="col">CodeCateg</th>
                         <th scope="col">CompteDeRefProd</th>
@@ -153,11 +160,11 @@
                     <p>SELECT Fournisseur.Pays, Count(Produit.RefProd) AS CompteDeRefProd1 <br>
                         FROM Fournisseur INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour <br>
                         GROUP BY Fournisseur.Pays <br>
-                        ORDER BY Count(Produit.RefProd) DESC ; <br>
+                        ORDER BY Count(Produit.RefProd) DESC ;
                     </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
-                <img src="assets/pictures/mission3/theme2-requete2.png">
+                <img src="assets/pictures/mission3/theme2-requete2.png" alt="Table résultat de la requête 2 du thème 2 sur Access">
             </li>
         </ol>
     </article>
@@ -174,11 +181,12 @@
                 <div class="sql">
                     <p>SELECT DISTINCT Fournisseur.Pays, Categorie.NomCateg, Produit.PrixUnit, Produit.NomProd <br>
                         FROM Fournisseur INNER JOIN ((Categorie INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg) INNER JOIN (Commande INNER JOIN DetailCommande ON Commande.NoCom = DetailCommande.NoCom) ON Produit.RefProd = DetailCommande.RefProd) ON Fournisseur.NoFour = Produit.NoFour <br>
-                        WHERE (((Fournisseur.Pays)="Allemagne") AND ((Categorie.NomCateg) Like "desserts" Or (Categorie.NomCateg) Like "boissons") AND ((Produit.PrixUnit)<100)); <br>
+                        WHERE (((Fournisseur.Pays)="Allemagne") AND ((Categorie.NomCateg) Like "desserts" Or (Categorie.NomCateg) Like "boissons") AND ((Produit.PrixUnit)<100));
                     </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
                 <table>
+                    <caption>Table résultat de la requête 1 du thème 3</caption>
                     <tr>
                         <th scope="col">Pays</th>
                         <th scope="col">NomCateg</th>
@@ -220,11 +228,11 @@
                 <div class="sql">
                     <p>SELECT DISTINCT Produit.NoFour, Produit.CodeCateg <br>
                         FROM (Produit INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour) INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg <br>
-                        WHERE Fournisseur.NoFour NOT IN ( SELECT Produit.NoFour FROM Produit INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg WHERE Categorie.CodeCateg NOT IN (1,3) ); <br>
+                        WHERE Fournisseur.NoFour NOT IN ( SELECT Produit.NoFour FROM Produit INNER JOIN Categorie ON Produit.CodeCateg = Categorie.CodeCateg WHERE Categorie.CodeCateg NOT IN (1,3) );
                     </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
-                <img src="assets/pictures/mission3/theme3-requete2.png">
+                <img src="assets/pictures/mission3/theme3-requete2.png" alt="Table résultat de la requête 2 du thème 3 sur Access">
             </li>
         </ol>
     </article>
@@ -241,11 +249,12 @@
                 <div class="sql">
                     <p>SELECT DISTINCT Client.SocieteCli, Client.VilleCli, Fournisseur.Pays <br>
                         FROM Client INNER JOIN (Commande INNER JOIN (Fournisseur INNER JOIN (Produit INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.RefProd) ON Fournisseur.NoFour = Produit.NoFour) ON Commande.NoCom = DetailCommande.NoCom) ON Client.CodeCli = Commande.CodeCli <br>
-                        WHERE (((Client.VilleCli) Like "nant*") AND ((Fournisseur.Pays) Like "*allemagne*")); <br>
+                        WHERE (((Client.VilleCli) Like "nant*") AND ((Fournisseur.Pays) Like "*allemagne*"));
                     </p>
                 </div>
                 <h4><u>Table résultat</u></h4>
                 <table>
+                    <caption>Table résultat de la requête 1 du thème 4</caption>
                     <tr>
                         <th scope="col">SocieteCli</th>
                         <th scope="col">VilleCli</th>
@@ -277,11 +286,11 @@
                 <div class="sql">
                     <p>SELECT DISTINCT Client.VilleCli, Fournisseur.Pays, Client.SocieteCli <br>
                         FROM Fournisseur INNER JOIN (Produit INNER JOIN ((Client INNER JOIN Commande ON Client.CodeCli = Commande.CodeCli) INNER JOIN DetailCommande ON Commande.NoCom = DetailCommande.NoCom) ON Produit.RefProd = DetailCommande.RefProd) ON Fournisseur.NoFour = Produit.NoFour <br>
-                        WHERE (((Client.VilleCli) Like "besan*")); <br>
+                        WHERE (((Client.VilleCli) Like "besan*"));
                     </p>
                 </div>
-                <h4><u>Table résultat</u></h4>*
-                <img src="assets/pictures/mission3/theme4-requete2.png">
+                <h4><u>Table résultat</u></h4>
+                <img src="assets/pictures/mission3/theme4-requete2.png" alt="Table résultat de la requête 2 du thème 4 sur Access">
             </li>
         </ol>
     </article>
