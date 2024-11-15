@@ -11,8 +11,6 @@
 <header>
     <h1>Mission n°1 : Interrogation d'une base de données - Excel</h1>
 </header>
-
-
 <aside>
     <nav>
         <div class="TitreAside">
@@ -46,18 +44,15 @@
         </ol>
     </div>
 </aside>
-
-
 <main>
     <article id="contexte">
         <h2>Contexte</h2>
-        <p>Dans cette première mission nous allons d'abord prendre en main les données de KDou en étudiant la
-            base de donnée
-            et l'interrogeant sur excel.</p>
+        <p>Dans cette première mission, nous allons d'abord prendre en main les données de KDou en étudiant la
+            base de donnée et en l'interrogeant via excel.</p>
     </article>
     <article id="analyse">
         <h2>Analyse globale de la base de données</h2>
-        <p>Nous avons d'abord identifiés les clés primaires et secondaires :</p>
+        <p>Nous avons d'abord identifié les clés primaires et secondaires :</p>
         <ol>
             <li>Clés primaires :</li>
             <ol class="ListesClés">
@@ -82,7 +77,7 @@
                 <li>Table DetailCommande : les attributs « Réf produit » et « N° commande »</li>
             </ol>
         </ol>
-        <h3>On a donc le schéma de la BDR suivant :</h3>
+        <h4><u>On a donc le schéma de la BDR suivant :</u></h4>
         <div class="SchémaBDR">
             <p><strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact, Fonction,
                 Adresse, Ville, Région, Code postal, Pays, Téléphone)<br>
@@ -103,14 +98,12 @@
     <article id="exemples">
         <h2>Explications et exemples</h2>
         <p>Voici quelques exemples et explications afin de comprendre au mieux le schéma ci-dessus, nous allons
-            chercher plusieurs informations dans la base de données
-            excel à travers des questions.</p>
+            chercher plusieurs informations dans la base de données excel à travers des questions.</p>
         <ol>
             <li>
                 <h3 id="requete1">Combien y a-t-il de clients Nantais ?</h3>
                 <p>Pour trouver cette information, nous allons donc aller dans la table CLIENTELE et appliquer un
-                    filtre avec "*nantes*".
-                    On remarque ainsi qu'il y a seulement 3 clients Nantais :</p>
+                    filtre avec "*nantes*". On remarque ainsi qu'il y a seulement 3 clients Nantais :</p>
                 <table>
                     <caption>Tableau des 3 clients Nantais</caption>
                     <tr>
@@ -156,18 +149,19 @@
                 </table>
                 <p>On voit donc ici que la table CLIENTELE est organisée de la manière suivante :<br>
                     <strong>CLIENTELE</strong> (<strong><u>Code client</u></strong>, Société, Contact, Adresse,
-                    Ville, Code postal, Pays, Téléphone)</p>
+                    Ville, Code postal, Pays, Téléphone)
+                </p>
             </li>
             <li>
                 <h3 id="requete2">Quelle est l'adresse du fournisseur Marie Delamare ?</h3>
                 <p>Pour trouver cette information, nous allons directement faire une recherche dans la table
                     FOURNISSEUR, on a donc l'adresse suivante :<br>
                     22 rue H. Voiron Montceau [Region NULL] 71300 France</p>
-                <img alt="Table FOURNISSEUR avec la recherche active sur Excel"
-                     src="assets/pictures/mission1/mission1_AdresseFournisseur.png">
+                <img alt="Table FOURNISSEUR avec la recherche active sur Excel" src="assets/pictures/mission1/mission1_AdresseFournisseur.png">
                 <p>On voit donc ici que la table FOURNISSEUR est organisée de la manière suivante :<br>
                     <strong>FOURNISSEUR</strong> (<strong><u>N° fournisseur</u></strong>, Société, Contact,
-                    Fonction, Adresse, Ville, Région, Code postal, Pays, Téléphone)<br></p>
+                    Fonction, Adresse, Ville, Région, Code postal, Pays, Téléphone)
+                </p>
             </li>
             <li>
                 <h3 id="requete3">Quelle est l'offre de produits Suédois ?</h3>
@@ -175,11 +169,11 @@
                     (on remarque d'ailleurs qu'il y a deux valeurs pour représenter le pays Suède) :</p>
                 <img alt="Table FOURNISSEUR avec le filtre appliqué sur Excel" src="assets/pictures/mission1/mission1_OffreSuedoise.png">
                 <p>- Nous avons ensuite appliqué un filtre dans la table PRODUIT sur l'attribut "N° fournisseur" avec les
-                    2 "N° fournisseur" trouvés ci-dessus (9 et 17) :</p>
+                    2 "N° fournisseur" trouvés ci-dessus via la recherche précédente (9 et 17) :</p>
                 <img alt="Table PRODUIT avec le filtre appliqué sur Excel" src="assets/pictures/mission1/mission1_OffreSuedoise1.png">
-                <p>- Nous pouvons donc maintenant créer une table "résultat" comme ci-dessous qui résume les recherche :</p>
+                <p>- Nous pouvons donc maintenant créer une table "résultat" comme ci-dessous qui résume les recherches :</p>
                 <table>
-                    <caption>Résultats de la recherche sur l'offre de produits Suèdois</caption>
+                    <caption>Résultats de la recherche sur l'offre de produits Suédois</caption>
                     <tr>
                         <th scope="col">Fournisseurs</th>
                         <th scope="col">Offre de produits</th>
@@ -199,16 +193,15 @@
     <article id="conclusion">
         <h2>Conclusion</h2>
         <p>Pour conclure sur cette première approche de la base de données de KDou, nous pouvons affirmer que les données ne sont pas de bonne qualité.
-            En effet, pendant notre étude nous avons relevé une multitude d'erreurs et d'incohérences.
-            Aussi, il était très compliqué de faire des recherches plus avancées sur la base de données étant donné que nous étions sur Excel
-            et qu'il n'y a pas de contraintes d'intégrités.</p>
-        <p>Pour améliorer les données on peut mettre en place plusieurs petites choses concernant la structure même de la base de données,
-            en voici quelques exemples :</p>
+            En effet, pendant notre étude, nous avons relevé une multitude d'erreurs et d'incohérences. Aussi, il était très compliqué de faire des recherches plus avancées sur la base de données étant donné que nous étions sur Excel
+            et qu'il n'y a pas de contraintes d'intégrités.
+        </p>
+        <p>Pour améliorer les données, on peut mettre en place plusieurs petites choses concernant la structure même de la base de données, en voici quelques exemples :</p>
         <ul>
             <li>Arrondir les remises pour que la donnée soit plus lisible.</li>
-            <li>Ecrire toutes les dates sous la forme jj/mm/aaaa pour faciliter les recherches dans la table.</li>
+            <li>Écrire toutes les dates sous la forme jj/mm/aaaa pour faciliter les recherches dans la table.</li>
             <li>Représenter chaque pays des clients et fournisseurs par une valeur pour faciliter les recherches dans les tables.</li>
-            <li>Remplir entièrement l'attribut "Région" dans la table FOURNISSEUR qui est très peu utilisées et pourrait servir pour des recherches plus précises et poussées.</li>
+            <li>Remplir entièrement l'attribut "Région" dans la table FOURNISSEUR qui est très peu utilisé et pourrait servir pour des recherches plus précises et poussées.</li>
         </ul>
         <p>Mais, il faudra surtout changer d'outils pour parcourir cette base de données en utilisant par exemple Microsoft Access, ce qui nous permettrait d'appliquer des contraintes d'intégrité et ainsi "lier" les tables entre elles et avoir un ensemble de données beaucoup plus cohérent. On pourrait appliquer les contraintes d'intégrités suivantes :</p>
         <div>
