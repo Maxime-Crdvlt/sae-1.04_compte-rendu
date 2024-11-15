@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang=fr>
+<html lang=fr xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <h1>Mission n°3</h1>
+    <h1>Mission n°3 : Interrogation d'une base de données - SQL</h1>
 </header>
 <aside>
     <nav>
@@ -37,7 +37,134 @@
     </div>
 </aside>
 <main>
-
+    <article id="contexte">
+        <h2>Contexte</h2>
+        <p>Pour cette mission il nous a été demandé d'interroger la base de données avec le langage SQL. Le but était ainsi d’analyser les données de KDou et de principalement vérifier certaines informations précises par le biais de SQL.
+        Nous avons donc divisé cette mission en 4 thèmes, chacun divisés en deux requêtes.</p>
+        <p>Pour chaque thème il y aura donc 2 requêtes, et pour chaque requête il y a :</p>
+        <ul>
+            <li>Une explication</li>
+            <li>La requête en SQL</li>
+            <li>La table résultat</li>
+        </ul>
+    </article>
+    <article id="theme1">
+        <h2>Thème n°1 : Desserts/Boissons</h2>
+        <p>Nous nous intéressons ici aux desserts et boissons proposés par KDou pour sa refléxion sur la santé.</p>
+        <ol>
+            <li>
+                <h3>Première requête</h3>
+                <p>La question suivante a été posée : « Quel est le chiffre d’affaires généré par la catégorie desserts et boissons ? » <br>
+                    Cette question est pertinente, car il est question de savoir s’il y a une réelle lucrativité vis-à-vis de ces catégories. Cette requête nous permettra ainsi d’avoir connaissance du chiffre d’affaires généré par ces catégories :</p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p>SELECT C.NomCateg, Sum(D.QteCom*D.PrixUnitCli*(1-D.Remise)) AS ChiffreAffaires <br>
+                        FROM (DetailCommande AS D LEFT JOIN Produit AS P ON D.RefProd = P.RefProd) LEFT JOIN Categorie AS C ON P.CodeCateg = C.CodeCateg <br>
+                        WHERE (((C.NomCateg) In ('desserts','boissons'))) <br>
+                        GROUP BY C.NomCateg; <br></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+                <table>
+                    <caption>Table résultat de la requête</caption>
+                    <tr>
+                        <th scope="col">NomCateg</th>
+                        <th scope="col">ChiffreAffaires</th>
+                    </tr>
+                    <tr>
+                        <td>Boissons</td>
+                        <td>336 981,92 €</td>
+                    </tr>
+                    <tr>
+                        <td>Desserts</td>
+                        <td>195 901,65 €</td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h3>Seconde requête</h3>
+                <p>La question suivante a été posée : « Quels sont les pays de provenance de ces catégories ? » <br>
+                    Cette question suscite l’acuité, car celle-ci permet de savoir par le biais de notre requête s’il y a des pays voisins à la France (où se trouve KDou) afin de tout d’abord avoir des frais de ports moins conséquents, mais également de savoir s'il y a tout simplement une provenance de ces catégories en France. Cela faciliterait grandement la commande de celles-ci.
+                    Cette requête nous permettra ainsi d’avoir connaissance des pays de provenances de ces catégories.</p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+        </ol>
+    </article>
+    <article id="theme2">
+        <h2>Thème n°2 : L'offre de KDou</h2>
+        <p>Nous nous intéressons ici à l'offre de KDou pour d'éventuels changements.</p>
+        <ol>
+            <li>
+                <h3>Première requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+            <li>
+                <h3>Seconde requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+        </ol>
+    </article>
+    <article id="theme3">
+        <h2>Thème n°3 : Provenance des produits</h2>
+        <p>Nous nous intéressons ici à la provenance des produits de KDou pour d'éventuels ajustements sur la logistique.</p>
+        <ol>
+            <li>
+                <h3>Première requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+            <li>
+                <h3>Seconde requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+        </ol>
+    </article>
+    <article id="theme4">
+        <h2>Thème n°4 : L'offre de KDou</h2>
+        <p>Nous nous intéressons ici aux clients de KDou et aux remises accordées afin de prévoir d'éventuels changements.</p>
+        <ol>
+            <li>
+                <h3>Première requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+            <li>
+                <h3>Seconde requête</h3>
+                <p></p>
+                <h4><u>Requête SQL</u></h4>
+                <div class="sql">
+                    <p></p>
+                </div>
+                <h4><u>Table résultat</u></h4>
+            </li>
+        </ol>
+    </article>
 </main>
 <footer>
     <h3>A propos</h3>

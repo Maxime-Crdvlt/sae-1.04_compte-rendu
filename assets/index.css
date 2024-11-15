@@ -77,6 +77,9 @@ nav > ul {
     margin: 0;
     padding: 0;
 }
+nav li, .sommaire li {
+    padding: 0.25em;
+}
 /* Barre de Navigation */
 
 
