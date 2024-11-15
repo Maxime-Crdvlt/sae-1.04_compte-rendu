@@ -1,3 +1,32 @@
+@media all and (max-width: 991px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-column-gap: 0.25em;
+        grid-row-gap: 0.25em;
+    }
+    header {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    aside {
+        display: flex;
+        flex-direction: row;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        position: fixed;
+    }
+    main {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    footer {
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+}
+
 body {
     display: grid;
     grid-template-columns: 20fr 80fr;
@@ -154,6 +183,12 @@ img {
     display: block;
     width: 50%;
     height: 50%;
+    margin: 0 auto;
+}
+.d2 {
+    display: block;
+    width: 25%;
+    height: 25%;
     margin: 0 auto;
 }
 main ol, main ul {
