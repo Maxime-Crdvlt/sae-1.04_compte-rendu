@@ -220,9 +220,7 @@ footer a:link, footer a:visited, footer a:active {
     .TitreAside {
         display: flex;
         flex-direction: row;
-        align-items: center;
         padding-left: 1em;
-        justify-content: center;
     }
     .TitreAside img {
         display: block;
